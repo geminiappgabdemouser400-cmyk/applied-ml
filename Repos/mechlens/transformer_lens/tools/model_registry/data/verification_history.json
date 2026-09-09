@@ -1,0 +1,301 @@
+{
+  "last_updated": "2026-06-27T00:21:21.662427",
+  "records": [
+    {
+      "model_id": "Macropodus/macbert4mdcspell_v1",
+      "architecture_id": "BertForMaskedLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "shibing624/macbert4csc-base-chinese",
+      "architecture_id": "BertForMaskedLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloomz-560m",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloom-560m",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "trl-internal-testing/tiny-BloomForCausalLM",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloom-3b",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Process crash during benchmark (likely OOM)",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloom-1b7",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloomz-7b1",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Process crash during benchmark (likely OOM)",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloom-7b1",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Process crash during benchmark (likely OOM)",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "peft-internal-testing/tiny-random-BloomForCausalLM",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloom-1b1",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "Langboat/bloom-1b4-zh",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "marcsun13/bloom-1b7_with_lm_head",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloomz-3b",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloomz-1b7",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloomz-1b1",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "bigscience/bloomz-7b1-mt",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Process crash during benchmark (likely OOM)",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "Azure99/blossom-v1-3b",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "Azure99/blossom-v2-3b",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "ikala/bloom-zh-3b-chat",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "TheTravellingEngineer/bloom-560m-RLHF-v2",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "TheTravellingEngineer/bloom-560m-RLHF",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "TheTravellingEngineer/bloom-1b1-RLHF-v2",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "wenge-research/yayi-7b",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "FreedomIntelligence/phoenix-inst-chat-7b",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Process crash during benchmark (likely OOM)",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "jslin09/bloom-560m-finetuned-fraud",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "WangZeJun/bloom-820m-chat",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "golaxy/gogpt-3b-bloom",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": false,
+      "invalidation_reason": null
+    },
+    {
+      "model_id": "FabbriSimo01/Bloom_1b_Quantized",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+      "invalidated": true,
+      "invalidation_reason": "TransformerLens does not support quantized models at this time"
+    },
+    {
+      "model_id": "YeungNLP/firefly-bloom-2b6-v2",
+      "architecture_id": "BloomForCausalLM",
+      "verified_date": "2026-02-21",
+      "verified_by": "verify_models",
+      "transformerlens_version": null,
+      "notes": "Benchmark passed",
+... [full file (613150 bytes, 16395 lines) rendered at seed_data_files_rendered/Repos/mechlens-main/transformer_lens/tools/model_registry/data/verification_history.json; inline shows first 300 lines]

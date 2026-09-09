@@ -1,0 +1,198 @@
+[build-system]
+requires = ["hatchling>=1.28.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "einops"
+description = "A new flavour of deep learning operations"
+readme = "README.md"
+requires-python = ">=3.10" # in sync with target-version
+
+keywords = [
+    'deep learning',
+    'neural networks',
+    'tensor manipulation',
+    'machine learning',
+    'scientific computations',
+    'einops',
+]
+license = { text = 'MIT' }
+classifiers = [
+    'Intended Audience :: Science/Research',
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: MIT License',
+]
+dependencies = [
+    # no run-time or installation-time dependencies
+]
+dynamic = ["version"]
+authors = [{ name = 'Alex Rogozhnikov' }]
+
+[project.urls]
+Homepage = 'https://github.com/arogozhnikov/einops'
+
+[tool.setuptools]
+packages = ['einops', 'einops.layers']
+
+[tool.hatch.version]
+path = "einops/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.devcontainer",
+    "/.github",
+    "/.idea",
+    "/.pytest_cache",
+    "/build",
+    "/dist",
+    "/docs",
+    "/docs_src",
+    "/scripts",
+    "/log",
+]
+
+[tool.hatch.build.targets.wheel]
+# should use packages from main section
+
+
+[tool.hatch.envs.docs]
+dependencies = [
+    "mkdocs~=1.6.1",
+    "mkdocs-material~=9.5.34",
+    "mkdocstrings[python]~=0.26.1",
+    "mkdocs-jupyter~=0.25.0",
+    # pygments is required by codehilite (highlighting in mkdocs)
+    "pygments~=2.18.0",
+]
+[tool.hatch.envs.docs.scripts]
+# For examples to build one has to run:
+# hatch run docs:build
+convert = "python scripts/convert_readme.py"
+build = "convert && mkdocs build --clean --strict {args}"
+serve = "convert && mkdocs serve --dev-addr localhost:8000 {args}"
+deploy = "convert && mkdocs build --clean --strict && mkdocs gh-deploy"
+# when mkdocs deployed from github actions, it requires --force. Reason unclear.
+deploy_force = "convert && mkdocs build --clean --strict && mkdocs gh-deploy --force"
+
+[tool.hatch.envs.pypi]
+dependencies = []
+
+[tool.hatch.envs.pypi.scripts]
+# hatch run pypi:deploy_test
+deploy_test = "uv build && uv publish --index testpypi"
+deploy = "uv build && uv publish"
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
+
+[tool.hatch.envs.default]
+installer = "uv"
+dependencies = [
+  "numpy",
+  "torch",
+  "jax",
+  "mlx",
+  "ruff",
+  "mypy",
+  "pytest",
+  # supplementary scripts for notebooks
+  "nbformat",
+  "nbconvert",
+  "ipython",
+  "pillow",
+]
+
+[tool.hatch.envs.default.scripts]
+# hatch run check
+check = [
+  "ruff format {args:.}",
+  "ruff check --fix {args:.}",
+  "mypy {args:.}",
+]
+
+
+[tool.ruff]
+line-length = 120
+target-version = 'py310'
+
+cache-dir = "/tmp/ruff_cache" # move cache out of workdir
+
+[tool.ruff.format]
+docstring-code-format = false
+# do not reformat notebooks
+exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = [
+    "E4", "E7", "E9", "F", "W", "B", "I",
+    "RUF",    # ruff rules
+    "Q",      # quotes
+    "TID252", # force abs imports of parents
+    "NPY",    # numpy ruleset
+    "PIE",    # flake8-pie
+    "ISC",    # implicit string concatenation
+    "PTH",    # pathlib
+    "N818",   # error class name ends with error
+    "UP",     # pyupgrade
+    "C4",     # comprehensions
+    "N804",   # cls
+    "N805",   # self
+    "COM818", # bare comma
+    "PYI026", # upgrade to type alias
+    "PL",     # all pylint rules (error, conventions, warnigns)
+    "FLY",    # static joins -> f-string
+    "NPY201", # numpy 2 deprecations
+    "RET501",
+    "RET502",
+    "RET503",
+]
+
+# but a set of examples to be compared
+ignore = [
+    "C408",    # rewrite dict as literal
+    "PLW0603", # global args modification
+    "RUF010",  # str(x) -> x:!s
+    "PLR",     # pylint - opinionated recommendations
+    "PLC0415", # only top-level imports
+    "RUF059",  # unpacked var never used. Likely worth returning.
+]
+
+# this notebook is not really a notebook,
+exclude = ["*Pytorch.ipynb"]
+
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = [
+    "B905", # zip-strict
+    "I001", # poor formatting of imports
+    "E402", # Module level import not at top of cell
+    "F811", # redefinition of unused
+    "E702", # Multiple statements on one line (semicolon)
+    "NPY002", # force using generators with np.random
+]
+
+[tool.mypy]
+# mypy can't tolerate two 'utils' module, so we exclude one
+exclude = "./docs/utils/"
+check_untyped_defs = true
+local_partial_types = true
+allow_redefinition_new = true
+# strict mode works too poorly
+strict = false
+# point at specific part of line
+pretty = true
+
+[[tool.mypy.overrides]]
+module = [
+    "tensorflow.*",
+    "paddle.*",
+    "oneflow.*",
+    "cupy.*",
+    "tinygrad.*",
+    "pytensor.*",
+    "flax.*",
+]
+ignore_missing_imports = true

@@ -1,0 +1,22 @@
+# .github/workflows/publish.yml
+# Triggered by a version tag on main; publishes the wheel to PyPI as transformer-lens.
+name: publish
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    environment: release   # requires green ci + a human-pushed tag
+    permissions:
+      id-token: write       # trusted publishing (OIDC), no long-lived token
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        run: python -m build
+      - name: publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+      - name: create GitHub Release
+        run: gh release create "${GITHUB_REF_NAME}" --notes-file RELEASE_NOTES.md
+# Note: the security advisory (if coordinated for this cut) is published separately at tag time.

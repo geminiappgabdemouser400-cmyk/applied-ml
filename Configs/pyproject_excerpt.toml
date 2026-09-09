@@ -1,0 +1,33 @@
+# pyproject.toml (excerpt) - transformer-lens
+# MIT licensed. Dependencies must be MIT-compatible (permissive: MIT / BSD / Apache-2.0).
+# No GPL / copyleft dependency (it would virally re-license the project). See #1101.
+
+[project]
+name = "transformer-lens"
+version = "2.16.1"
+description = "A library for mechanistic interpretability of GPT-style language models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "TransformerLensOrg" }]
+
+dependencies = [
+    "torch>=2.1",
+    "numpy>=1.24",
+    "einops>=0.7",
+    "transformers>=4.44",   # Apache-2.0
+    "datasets>=2.18",       # Apache-2.0
+    "jaxtyping>=0.2",       # MIT
+    "typeguard>=4.2",       # MIT
+    "rich>=13.0",           # MIT
+    "pandas>=2.0",          # BSD-3-Clause
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov", "mypy", "ruff", "pip-licenses"]
+
+[tool.transformer_lens.policy]
+# permissive-only allowlist enforced by the CI license check (added around v2.15.0)
+allowed_licenses = ["MIT", "BSD-3-Clause", "BSD-2-Clause", "Apache-2.0", "ISC", "PSF-2.0"]
+# never bump a dependency version inside a patch release line
+no_dep_bump_in_patch = true

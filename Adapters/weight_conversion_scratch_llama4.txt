@@ -1,0 +1,30 @@
+LLaMA-4 conversion-table scratch (working notes, not for the PR)
+base copy: LLaMA-3 adapter
+
+config field mapping (HF -> TL):
+  hidden_size            -> d_model
+  num_attention_heads    -> n_heads
+  num_key_value_heads    -> n_key_value_heads   (GQA)
+  head_dim               -> d_head   <<< READ THE FIELD, do not compute
+  intermediate_size      -> d_mlp
+  num_hidden_layers      -> n_layers
+  rms_norm_eps           -> eps      (inside rsqrt)
+  rope_theta             -> rotary_base
+  vocab_size             -> d_vocab
+  tie_word_embeddings    -> (bool) keep W_U separate when False
+
+per-layer:
+  no_rope_layers / interleave: mark layers where RoPE is skipped (NoPE)
+  -> build a boolean list from config, index by layer in the rotary apply
+
+tensors:
+  q_proj,k_proj,v_proj,o_proj  (kv smaller under GQA -> repeat_kv in forward)
+  gate_proj,up_proj,down_proj  (SwiGLU)
+  input_layernorm, post_attention_layernorm
+  model.embed_tokens.weight -> W_E ; lm_head.weight -> W_U (untied)
+
+FAILED first pass: assumed d_head = d_model//n_heads -> logits off by ~4e-3
+FIXED: read head_dim field -> delta 5.8e-5 PASS (RunPod, 2026-04-16)
+
+shared RoPE helper: factor scaled-RoPE math out; reused by LLaMA-3 path
+  -> CROSS-CUTTING, get Rehan +1 before merge (done 2026-04-20 via GH review)

@@ -1,0 +1,9 @@
+# CONFIDENTIAL - Apollo consulting hours - Bram-only
+month,activity,hours,rate_usd,line_net_usd,invoice
+2026-01,retainer: triage first-look + hook review,12,145,1740,HB-2026-011
+2026-02,retainer: priority triage + adapter first-look,10,145,1450,HB-2026-018
+2026-03,Qwen-3 custom adapter + hooks integration (wk1),14,145,2030,HB-2026-027
+2026-03,Qwen-3 custom adapter + hooks integration (wk2),14,145,2030,HB-2026-027
+2026-03,Qwen-3 custom adapter + hooks integration (wk3),12,145,1740,HB-2026-027
+2026-05,"retainer: reduced (ICML surge, dropped weeks)",8,145,1160,HB-2026-039
+2026-06,"retainer: reduced (PR backlog, dropped hours)",6,145,870,HB-2026-046

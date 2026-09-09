@@ -1,0 +1,31 @@
+# .github/workflows/ci.yml (matrix excerpt)
+# Yusuke owns CI + the weight-loading acceptance suite; green CI is the release gate.
+name: ci
+on: [push, pull_request]
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12"]
+        torch: ["2.1", "2.3", "2.5"]
+        exclude:
+          - python: "3.12"
+            torch: "2.1"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: unit tests
+        run: pytest -q tests/unit
+      - name: acceptance (small public checkpoints)
+        run: pytest -q tests/acceptance -k "smallest"
+      - name: license check (permissive-only)
+        run: pip-licenses --allow-only "MIT;BSD-3-Clause;BSD-2-Clause;Apache-2.0;ISC;PSF-2.0"
+
+  gpu-acceptance:
+    # opt-in; large checkpoints run on a RunPod pod, not in CI
+    if: contains(github.event.pull_request.labels.*.name, 'needs-gpu-acceptance')
+    runs-on: self-hosted
+    steps:
+      - run: echo "float32 logits match HF to 1e-4 absolute on the smallest public checkpoint"

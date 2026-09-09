@@ -1,0 +1,32 @@
+{
+  "family": "llama-4",
+  "since_tl_version": "2.14.0",
+  "pr": 1094,
+  "source_modeling_file": "public HF modeling_llama4.py",
+  "config_map": {
+    "hidden_size": "d_model",
+    "num_attention_heads": "n_heads",
+    "num_key_value_heads": "n_key_value_heads",
+    "head_dim": "d_head (READ THE FIELD; do not infer)",
+    "intermediate_size": "d_mlp",
+    "num_hidden_layers": "n_layers",
+    "rms_norm_eps": "eps (inside rsqrt)",
+    "rope_theta": "rotary_base",
+    "vocab_size": "d_vocab",
+    "tie_word_embeddings": "keep W_U separate when false"
+  },
+  "flags": {
+    "attention": "GQA",
+    "rope": "scaled + interleaved NoPE (per-layer apply mask)",
+    "norm": "RMSNorm pre-norm",
+    "mlp": "SwiGLU",
+    "moe": "out of scope for the first adapter (dense checkpoint only)"
+  },
+  "acceptance": {
+    "checkpoint": "meta-llama/Llama-4-Scout-mini",
+    "max_logit_delta": 5.8e-05,
+    "threshold": 0.0001,
+    "runner": "runpod",
+    "date": "2026-04-16"
+  }
+}

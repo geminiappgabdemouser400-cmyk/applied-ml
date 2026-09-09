@@ -1,0 +1,28 @@
+# demo-notebook regression sweep config
+# Run the Wednesday evening before each release. ANY failure blocks the cut.
+
+[sweep]
+run_when = "wednesday-before-last-thursday"
+blocking = true
+runner = "local"    # falls back to a RunPod pod if a notebook needs VRAM
+timeout_min = 45
+
+[[notebook]]
+path = "demos/Main_Demo.ipynb"
+checks = ["runs-clean", "logits-stable"]
+
+[[notebook]]
+path = "demos/Activation_Patching.ipynb"
+checks = ["runs-clean"]
+
+[[notebook]]
+path = "demos/Attribution_Patching.ipynb"
+checks = ["runs-clean"]
+
+[[notebook]]
+path = "demos/SAE_Intro.ipynb"
+checks = ["runs-clean", "hook-names-stable"]
+
+[[notebook]]
+path = "demos/Loading_Models.ipynb"
+checks = ["runs-clean", "supported-models-current"]
